@@ -1,0 +1,28 @@
+{
+    "name": "ict-plugin/ict-plugin",
+    "description": "ICT plugin",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "shopware/core": "6.5.*"
+    },
+    "extra": {
+        "shopware-plugin-class": "IctPlugin\\IctPlugin",
+        "plugin-icon": "plugin.png",
+        "label": {
+            "de-DE": "ICT plugin",
+            "en-GB": "ICT plugin"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "IctPlugin\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "IctPlugin\\Tests\\": "tests/"
+        }
+    }
+}

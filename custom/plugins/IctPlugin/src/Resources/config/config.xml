@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+        <card>
+            <title>ICT Plugin SMTP Configuration</title>
+            <title lang="de-DE">ICT Plugin SMTP Configuration</title>
+
+            <input-field type="text">
+                <name>smtpEmail</name>
+                <label>UserName</label>
+                <label lang="de-DE">UserName</label>
+                <helpText>Enter Gmail Id</helpText>
+            </input-field>
+            <input-field type="password">
+                <name>password</name>
+                <label>Password</label>
+                <label lang="de-DE">Password</label>
+            </input-field>
+        </card>
+        <card>
+            <title>ICT Plugin Configuration</title>
+            <title lang="de-DE">ICT Plugin Configuration</title>
+
+            <input-field type="text">
+                <name>pluginName</name>
+                <label>Plugin Name</label>
+                <label lang="de-DE">Plugin Name</label>
+                <copyable>true</copyable>
+                <placeholder>Plugin Name</placeholder>
+                <helpText>Enter a Plugin Name</helpText>
+            </input-field>
+            <component name="sw-media-field">
+                <name>pluginImage</name>
+                <label>Upload media or choose for Plugin</label>
+                <label lang="de-DE">Upload media or choose for Plugin</label>
+            </component>
+            <component name="sw-text-editor">
+                <name>pluginTextEditor</name>
+                <label>Description</label>
+                <label lang="de-DE">Description</label>
+            </component>
+            <component name="sw-entity-multi-id-select">
+                <name>productSelect</name>
+                <entity>product</entity>
+                <label>Multi Selects Products</label>
+                <label lang="de-DE">Multi Selects Products</label>
+            </component>
+            <component name="sw-entity-single-select">
+                <name>productSingleSelect</name>
+                <entity>category</entity>
+                <label>Select A Category From List</label>
+                <label lang="de-DE">Select A Product From List</label>
+            </component>
+            <component name="sw-snippet-field">
+                <name>snippetTranslationField</name>
+                <name>Snippet Translation Field</name>
+                <snippet>snippet.translation.field</snippet>
+            </component>
+        </card>
+</config>
