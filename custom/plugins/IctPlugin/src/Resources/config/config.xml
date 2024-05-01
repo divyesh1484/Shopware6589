@@ -47,7 +47,7 @@
                 <label lang="de-DE">Multi Selects Products</label>
             </component>
             <component name="sw-entity-single-select">
-                <name>productSingleSelect</name>
+                <name>categorySingleSelect</name>
                 <entity>category</entity>
                 <label>Select A Category From List</label>
                 <label lang="de-DE">Select A Product From List</label>

@@ -72,4 +72,14 @@ class CustomFieldsInstaller
 
         return $this->customFieldSetRepository->searchIds($criteria, $context)->getIds();
     }
+
+    public function deleteRelations(Context $context): void
+    {
+        $this->customFieldSetRelationRepository->delete(array_map(function (string $customFieldSetId) {
+            return [
+                'customFieldSetId' => $customFieldSetId,
+                'entityName' => 'product',
+            ];
+        }, $this->getCustomFieldSetIds($context)), $context);
+    }
 }

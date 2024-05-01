@@ -33,5 +33,9 @@
             <argument type="service" id="custom_field_set_relation.repository"/>
         </service>
 
+        <service id="IctPlugin\Core\Content\IctShop\IctShopDefinition">
+            <tag name="shopware.entity.definition" entity="ict_shop"/>
+        </service>
+
     </services>
 </container>
