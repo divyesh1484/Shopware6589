@@ -1,0 +1,27 @@
+{
+    "name": "ict-blog-plugin/ict-blog-plugin",
+    "description": "Skeleton plugin",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "shopware/core": "6.5.*"
+    },
+    "extra": {
+        "shopware-plugin-class": "IctBlogPlugin\\IctBlogPlugin",
+        "label": {
+            "de-DE": "Ict Blog Plugin",
+            "en-GB": "Ict Blog Plugin"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "IctBlogPlugin\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "IctBlogPlugin\\Tests\\": "tests/"
+        }
+    }
+}
