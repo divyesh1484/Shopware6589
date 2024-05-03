@@ -31,6 +31,7 @@
         <!-- Product Definition End -->
 
         <!-- Extension -->
+            
         <service id="IctBlogPlugin\Core\Content\Extension\LanguageExtension">
             <tag name="shopware.entity.extension"/>
         </service>
@@ -43,13 +44,6 @@
             <tag name="shopware.entity.extension"/>
         </service>
 
-<!--        <service id="IctBlogPlugin\Core\Content\Extension\IctCategoryExtension">-->
-<!--            <tag name="shopware.entity.extension"/>-->
-<!--        </service>-->
-
-<!--        <service id="IctBlogPlugin\Core\Content\Extension\IctBlogExtension">-->
-<!--            <tag name="shopware.entity.extension"/>-->
-<!--        </service>-->
         <!-- Extension End-->
     </services>
 </container>
