@@ -1,0 +1,27 @@
+{
+    "name": "ict-plugin-controller/ict-plugin-controller",
+    "description": "Ict Controller plugin",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "shopware/core": "6.5.*"
+    },
+    "extra": {
+        "shopware-plugin-class": "IctPluginController\\IctPluginController",
+        "label": {
+            "de-DE": "Ict Controller plugin",
+            "en-GB": "Ict Controller plugin"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "IctPluginController\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "IctPluginController\\Tests\\": "tests/"
+        }
+    }
+}
