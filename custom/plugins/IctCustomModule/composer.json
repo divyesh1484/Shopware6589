@@ -1,0 +1,27 @@
+{
+    "name": "ict-custom-module/ict-custom-module",
+    "description": "Ict Custom Module plugin",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "shopware/core": "6.5.*"
+    },
+    "extra": {
+        "shopware-plugin-class": "IctCustomModule\\IctCustomModule",
+        "label": {
+            "de-DE": "Ict Custom Module plugin",
+            "en-GB": "Ict Custom Module plugin"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "IctCustomModule\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "IctCustomModule\\Tests\\": "tests/"
+        }
+    }
+}
