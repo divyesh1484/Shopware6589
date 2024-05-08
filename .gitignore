@@ -18,4 +18,11 @@
 /install.lock
 public/asset-manifest.json
 files/asset-manifest.json
+public
+compose.override.yaml
+compose.yaml
+composer.json
+symfony.lock
+composer.lock
+.env
 ###< shopware/core ###
