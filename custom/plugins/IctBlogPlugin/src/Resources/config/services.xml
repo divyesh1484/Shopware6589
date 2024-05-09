@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <!-- Category Definition -->
+        <service id="IctBlogPlugin\Core\Content\IctCategory\IctCategoryDefinition">
+            <tag name="shopware.entity.definition" entity="ict_category"/>
+        </service>
+
+        <service id="IctBlogPlugin\Core\Content\IctCategory\Aggregate\IctCategoryTranslation\IctCategoryTranslationDefinition">
+            <tag name="shopware.entity.definition" entity="ict_category_translation"/>
+        </service>
+        <!-- Category Definition End -->
+
+        <!-- Product Definition -->
+        <service id="IctBlogPlugin\Core\Content\IctBlog\IctBlogDefinition">
+            <tag name="shopware.entity.definition" entity="ict_blog"/>
+        </service>
+
+        <service id="IctBlogPlugin\Core\Content\IctBlog\Aggregate\IctBlogTranslation\IctBlogTranslationDefinition">
+            <tag name="shopware.entity.definition" entity="ict_blog_translation"/>
+        </service>
+
+        <service id="IctBlogPlugin\Core\Content\ProductBlogMappingDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+        <!-- Product Definition End -->
+
+        <!-- Extension -->
+            
+        <service id="IctBlogPlugin\Core\Content\Extension\LanguageExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="IctBlogPlugin\Core\Content\Extension\CategoryExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="IctBlogPlugin\Core\Content\Extension\ProductExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <!-- Extension End-->
+    </services>
+</container>
