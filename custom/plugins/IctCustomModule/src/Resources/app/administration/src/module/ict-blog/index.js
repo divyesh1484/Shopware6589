@@ -1,10 +1,10 @@
 import enGB from './snippet/en-GB.json'
 
 const { Module } = Shopware;
-Module.register('ict-module', {
+Module.register('ict-blog', {
 
 	type:'plugin',
-	name:'ictModule',
+	name:'ictBlog',
 	title:'ict-module.general.mainMenuItemGeneral',
 	description:'ict-module.general.descriptionTextModule',
 	color:'#ff3d58',
@@ -15,31 +15,35 @@ Module.register('ict-module', {
 	},
 
 	routes: {
-		list: {
-			component: '',
-			path: 'list'
+		index: {
+			components: {
+				default: 'ict-blog-list',
+			},
+			path: 'index',
 		},
 		detail: {
-			component: '',
+			component: 'ict-blog-detail',
 			path: 'detail/:id',
-			meta:{
-				parentPath:'ict.list'
-			}
 		},
 		create: {
-			component: '',
+			component: 'ict-blog-detail',
 			path: 'create',
 			meta: {
-				parentPath:'ict.list'
+				parentPath:'ict.blog.index'
 			}
 		}
 	},
-
+	settingsItem: [{
+		group: 'system',
+		to: 'ict-module.list',
+		icon: 'regular-rocket',
+		name: 'ict-module.general.mainMenuItemGeneral'
+	}],
 	navigation: [{
-		id:'ict-module',
+		id:'ict-blog',
 		label: 'ict-module.general.mainMenuItemGeneral',
 		color: '#ff3d58',
-		path: 'ict.module',
+		path: 'ict.module.index',
 		parent: 'sw-catalogue',
 		icon: 'default-shopping-paper-bag-product',
 		position: 100
