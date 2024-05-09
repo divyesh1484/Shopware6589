@@ -1,0 +1,61 @@
+{%  block ict_blog_create %}
+    <sw-page>
+        {% block ict_blog_create_header %}
+            <template #smart-bar-header>
+                <h2>New Blog</h2>
+            </template>
+        {% endblock %}
+
+        {% block ict_blog_create_actions %}
+            <template #smart-bar-actions>
+                <sw-button-process
+                    class="ict-blog-create__save-action"
+                    :is-loading="isLoading"
+                    :disabled="isLoading"
+                    :process-success="isSaveSuccessful"
+                    variant="primary"
+                    {% if VUE3 %}
+                        @update:process-success="saveFinish"
+                    {% else %}
+                        @process-finish="saveFinish"
+                    {% endif %}
+                    @click.prevent="onSave"
+                >
+                    Save
+                </sw-button-process>
+            </template>
+        {% endblock %}
+
+        {% block ict_block_create_content %}
+        <template #content>
+            <sw-card-view>
+                {% block ict_blog_create_base_form %}
+                    <sw-card title="Blog"  position-identifier="ict-blog-create-base-form"large>
+                        <sw-container
+                                columns="repeat(auto-fit, minmax(250px, 1fr))"
+                                gap="0px 32px"
+                        >
+                            <sw-text-field :copyable="true" name="sw-field--blog-name" label="Name" v-model="blog.name"/>
+                            <sw-textarea-field type="textarea" label="Description" placeholder="Blog Description" v-model="blog.description"/>
+                        </sw-container>
+                        <sw-switch-field
+                                label="Active"
+                                value=""
+                                v-model="blog.active"
+                        />
+                        <sw-datepicker
+                                date-type="datetime"
+                                label="Release Date"
+                                placeholder="$tc('Enter release date...')"
+                                value=""
+                                v-model="blog.releaseDate"
+                        />
+                        <sw-text-field :copyable="true" :copyableTooltip="false" label="Author" v-model="blog.author"/>
+                        <sw-entity-multi-id-select label="Products" :repository="productRepository" />
+                    </sw-card>
+                {% endblock %}
+            </sw-card-view>
+        </template>
+        {% endblock %}
+    </sw-page>
+{% endblock %}

@@ -1,1 +1,1 @@
-import './module/ict-module';
+import './module/ict-blog';

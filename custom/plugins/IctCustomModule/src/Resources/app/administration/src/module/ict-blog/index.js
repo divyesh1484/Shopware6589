@@ -1,14 +1,20 @@
 import enGB from './snippet/en-GB.json'
 
 const { Module } = Shopware;
+
+Shopware.Component.register('ict-blog-list', () => import('./page/ict-blog-list'));
+Shopware.Component.register('ict-blog-detail', () => import('./page/ict-blog-detail'));
+Shopware.Component.register('ict-blog-create', () => import('./page/ict-blog-create'));
+
 Module.register('ict-blog', {
 
 	type:'plugin',
 	name:'ictBlog',
-	title:'ict-module.general.mainMenuItemGeneral',
-	description:'ict-module.general.descriptionTextModule',
+	title:'ict-blog.general.mainMenuItemGeneral',
+	description:'ict-blog.general.descriptionTextModule',
 	color:'#ff3d58',
 	icon: 'default-shopping-paper-bag-product',
+	entity: 'ict_blog',
 
 	snippets:{
 		'en-GB': enGB
@@ -20,17 +26,36 @@ Module.register('ict-blog', {
 				default: 'ict-blog-list',
 			},
 			path: 'index',
+			meta: {
+				privilege: 'blog.viewer',
+				appSystem: {
+					view: 'list',
+				},
+			},
+		},
+		create: {
+			component: 'ict-blog-create',
+			path: 'create',
+			meta: {
+				parentPath: 'ict.blog.index',
+			},
 		},
 		detail: {
 			component: 'ict-blog-detail',
 			path: 'detail/:id',
-		},
-		create: {
-			component: 'ict-blog-detail',
-			path: 'create',
 			meta: {
-				parentPath:'ict.blog.index'
-			}
+				parentPath: 'ict.blog.index',
+				appSystem: {
+					view: 'detail',
+				},
+			},
+			props: {
+				default(route) {
+					return {
+						blogId: route.params.id,
+					};
+				},
+			},
 		}
 	},
 	settingsItem: [{
@@ -41,9 +66,9 @@ Module.register('ict-blog', {
 	}],
 	navigation: [{
 		id:'ict-blog',
-		label: 'ict-module.general.mainMenuItemGeneral',
+		label: 'ict-blog.general.mainMenuItemGeneral',
 		color: '#ff3d58',
-		path: 'ict.module.index',
+		path: 'ict.blog.index',
 		parent: 'sw-catalogue',
 		icon: 'default-shopping-paper-bag-product',
 		position: 100

@@ -1,7 +1,7 @@
 {
-  "ict-module": {
+  "ict-blog": {
     "general": {
-      "mainMenuItemGeneral": "ICT module",
+      "mainMenuItemGeneral": "ICT Blog",
       "descriptionTextModule": "Manage this custom module here"
     }
   }

@@ -1,0 +1,67 @@
+{% block ict_blog_detail %}
+    <sw-page>
+        {% block ict_blog_detail_header %}
+            <template #smart-bar-header>
+                <h2>
+                    {{ blog.name }}
+                </h2>
+            </template>
+        {% endblock %}
+
+        {% block ict_block_detail_actions %}
+            <template #smart-bar-actions>
+                <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                {% block ict_blog_actions_abort %}
+                    <sw-button>
+                        Cancel
+                    </sw-button>
+                {% endblock %}
+
+
+                <sw-button-group :split-button="true" >
+                    <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                    {% block ict_blog_detail_actions_save %}
+                        <sw-button-process
+                                class="sw-product-detail__save-action"
+                                :process-success="isSaveSuccessful"
+                                variant="primary"
+                        >
+                            Save
+                        </sw-button-process>
+                    {% endblock %}
+
+                    <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                    {% block ict_blog_detail_actions_save_context_menu %}
+                        <sw-context-button>
+                            <template #button>
+                                <sw-button
+                                        class="ict-blog-detail__button-context-menu"
+                                        square
+                                        variant="primary"
+                                >
+                                    <sw-icon
+                                            name="regular-chevron-down-xs"
+                                            size="16"
+                                    />
+                                </sw-button>
+                            </template>
+
+                            <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                            {% block ict_blog_detail_actions_save_context_menu_actions %}
+                                <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                                {% block ict_blog_detail_actions_duplicate %}
+                                    <sw-context-menu-item
+                                            class="ict-blog-detail__save-duplicate-action"
+                                    >
+                                        Save and duplicate
+                                    </sw-context-menu-item>
+                                {% endblock %}
+                            {% endblock %}
+                        </sw-context-button>
+                    {% endblock %}
+                </sw-button-group>
+            </template>
+
+        {% endblock %}
+    </sw-page>
+{% endblock %}
