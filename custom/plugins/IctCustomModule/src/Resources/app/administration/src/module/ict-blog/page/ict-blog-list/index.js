@@ -73,9 +73,11 @@ export default{
         getBlogs : function () {
             const criteria = new Criteria();
             this.repository = this.repositoryFactory.create('ict_blog');
+            criteria.addAssociation('products');
             this.repository.search(criteria, Shopware.Context.api).then((result) =>{
                 this.blogs = result;
                 this.total = result.total;
+                console.log(this.blogs);
             })
         }
     }

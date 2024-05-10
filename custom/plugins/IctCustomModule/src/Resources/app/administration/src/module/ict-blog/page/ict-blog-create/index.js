@@ -25,6 +25,7 @@ export default {
             blog: null,
             isSaveSuccessful: false,
             isLoading: false,
+            errorClass:null,
         };
     },
 
@@ -34,6 +35,9 @@ export default {
         },
         productRepository() {
             return this.repositoryFactory.create('product');
+        },
+        isTitleRequired() {
+            return Shopware.State.getters['context/isSystemDefaultLanguage'];
         },
     },
 
@@ -51,19 +55,34 @@ export default {
             this.isSaveSuccessful = false;
             this.$router.push({ name: 'ict.blog.detail', params: { id: this.blog.id } });
         },
-
+        onInputRemoveClass(){
+            if (this.blog.name){
+                this.errorClass = "";
+            }
+        },
         onSave() {
             this.isLoading = true;
             this.isSaveSuccessful = false;
-            console.log(this.blog);
-            return this.blogRepository.save(this.blog, Shopware.Context.api).then((response) => {
+            if (!this.blog.name){
+                this.createNotificationError({
+                    message: this.$tc('Please fill in all required fields.'),
+                });
+                this.isLoading = false;
+                this.errorClass = "has--error";
+                return new Promise((resolve) => {
+                    resolve();
+                });
+            }
 
+            return this.blogRepository.save(this.blog, Shopware.Context.api).then((response) => {
                 this.isLoading = false;
                 this.isSaveSuccessful = true;
-                return response;
+                this.createNotificationSuccess({
+                    message: this.$tc('Blog has been saved.'),
+                });
             }).catch(() => {
                 this.createNotificationError({
-                    message: this.$tc('Customer could not be saved.'),
+                    message: this.$tc('Blog could not be saved.'),
                 });
                 this.isLoading = false;
             });

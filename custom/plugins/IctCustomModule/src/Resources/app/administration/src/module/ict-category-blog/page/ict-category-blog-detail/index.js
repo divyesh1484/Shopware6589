@@ -1,4 +1,4 @@
-import template from './ict-blog-detail.html.twig';
+import template from './ict-category-blog-detail.html.twig';
 
 const { Context, Mixin } = Shopware;
 const { Criteria, ChangesetGenerator } = Shopware.Data;
@@ -15,7 +15,7 @@ export default{
         Mixin.getByName('placeholder'),
     ],
     props: {
-        blogId: {
+        categoryId: {
             type: String,
             required: true,
         },
@@ -24,16 +24,13 @@ export default{
         return {
             isLoading: false,
             isSaveSuccessful: false,
-            blog: null,
-            errorClass:null,
+            category: null,
+            sortDirection: 'DESC',
         };
     },
     computed: {
-        blogRepository() {
-            return this.repositoryFactory.create('ict_blog');
-        },
-        productRepository() {
-            return this.repositoryFactory.create('products');
+        categoryRepository() {
+            return this.repositoryFactory.create('ict_category');
         },
         editMode: {
             get() {
@@ -47,9 +44,17 @@ export default{
                 this.$router.push({ name: this.$route.name, query: { edit: editMode } });
             },
         },
+
+        generalRoute() {
+            return {
+                name: 'ict.category.blog.detail.base',
+                params: { id: this.categoryId },
+                query: { edit: this.editMode },
+            };
+        },
     },
     watch: {
-        blogId() {
+        categoryId() {
             this.createdComponent();
         },
     },
@@ -57,32 +62,27 @@ export default{
         this.createdComponent();
     },
     methods:{
-        onInputRemoveClass(){
-            if (this.blog.name){
-                this.errorClass = "";
-            }
-        },
-        async loadBlog() {
+        async loadCategory() {
+
             Shopware.ExtensionAPI.publishData({
-                id: 'ict-blog-detail__blog',
-                path: 'blog',
+                id: 'ict-category-blog-detail__blog',
+                path: 'category',
                 scope: this,
             });
             this.isLoading = true;
-            const criteria = new Criteria();
-            criteria.addAssociation('products');
-            this.blogRepository.get(
-                this.blogId,
+
+            this.categoryRepository.get(
+                this.categoryId,
                 Shopware.Context.api,
-                criteria,
-            ).then((blog) => {
-                this.blog = blog;
+                this.defaultCriteria,
+            ).then((category) => {
+                this.category = category;
                 this.isLoading = false;
             });
         },
 
         async createdComponent() {
-            await this.loadBlog();
+            await this.loadCategory();
         },
 
         saveFinish() {
@@ -96,25 +96,14 @@ export default{
             this.isLoading = true;
             this.isSaveSuccessful = false;
 
-            if (!this.blog.name){
-                this.createNotificationError({
-                    message: this.$tc('Please fill in all required fields.'),
-                });
-                this.isLoading = false;
-                this.errorClass = "has--error";
-                return new Promise((resolve) => {
-                    resolve();
-                });
-            }
-
-            return this.blogRepository.save(this.blog).then(() => {
+            return this.categoryRepository.save(this.category).then(() => {
                 this.isSaveSuccessful = true;
                 this.createNotificationSuccess({
-                    message: this.$tc('Blog has been saved.'),
+                    message: this.$tc('Category has been saved.'),
                 });
             }).catch((exception) => {
                 this.createNotificationError({
-                    message: this.$tc('Blog could not be saved.'),
+                    message: this.$tc('Category could not be saved.'),
                 });
                 this.isLoading = false;
                 throw exception;

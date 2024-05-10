@@ -1,0 +1,94 @@
+{% block ict_category_blog_detail %}
+    <sw-page>
+        {% block ict_category_blog_detail_header %}
+            <template #smart-bar-header>
+                <h2>
+                    {{ category.name }}
+                </h2>
+            </template>
+        {% endblock %}
+
+        {% block ict_category_blog_detail_actions %}
+            <template #smart-bar-actions>
+                <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                {% block ict_category_blog_actions_abort %}
+                    <sw-button>
+                        Cancel
+                    </sw-button>
+                {% endblock %}
+
+
+                <sw-button-group :split-button="true" >
+                    <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                    {% block ict_category_blog_detail_actions_save %}
+                        <sw-button-process
+                                class="ict_category_blog-detail__save-action"
+                                :process-success="isSaveSuccessful"
+                                variant="primary"
+                                :is-loading="isLoading"
+                                {% if VUE3 %}
+                                    @update:process-success="saveFinish"
+                                {% else %}
+                                    @process-finish="saveFinish"
+                                {% endif %}
+                                @click.prevent="onSave"
+                        >
+                            Save
+                        </sw-button-process>
+                    {% endblock %}
+
+                    <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                    {% block ict_category_blog_detail_actions_save_context_menu %}
+                        <sw-context-button>
+                            <template #button>
+                                <sw-button
+                                        class="ict-category-blog-detail__button-context-menu"
+                                        square
+                                        variant="primary"
+                                >
+                                    <sw-icon
+                                            name="regular-chevron-down-xs"
+                                            size="16"
+                                    />
+                                </sw-button>
+                            </template>
+
+                            <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                            {% block ict_category_blog_detail_actions_save_context_menu_actions %}
+                                <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                                {% block ict_category_blog_detail_actions_duplicate %}
+                                    <sw-context-menu-item
+                                            class="ict-category-blog-detail__save-duplicate-action"
+                                    >
+                                        Save and duplicate
+                                    </sw-context-menu-item>
+                                {% endblock %}
+                            {% endblock %}
+                        </sw-context-button>
+                    {% endblock %}
+                </sw-button-group>
+            </template>
+        {% endblock %}
+        {% block ict_category_blog_detail_content %}
+            <template #content>
+                <sw-card-view>
+                    {% block ict_category_blog_create_base_form %}
+                        <sw-card title="Category"  position-identifier="ict-category-blog-create-base-form"large>
+                            <sw-container
+                                    columns="repeat(auto-fit, minmax(250px, 1fr))"
+                                    gap="0px 32px"
+                            >
+                                <sw-text-field
+                                        :copyable="true"
+                                        name="sw-field--category-blog-name"
+                                        label="Name"
+                                        v-model="category.name"
+                                />
+                            </sw-container>
+                        </sw-card>
+                    {% endblock %}
+                </sw-card-view>
+            </template>
+        {% endblock %}
+    </sw-page>
+{% endblock %}

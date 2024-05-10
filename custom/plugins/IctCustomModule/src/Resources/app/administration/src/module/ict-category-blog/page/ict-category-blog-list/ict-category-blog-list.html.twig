@@ -1,0 +1,58 @@
+{% block ict_category_blog_list %}
+    <sw-page>
+        {% block ict_category_blog_list_smart_bar_header %}
+            <template #smart-bar-header>
+                {% block ict_category_blog_list_smart_bar_header_title %}
+                    <h2>
+                        {% block ict_category_blog_list_smart_bar_header_title_text %}
+                            ICT Categories
+                        {% endblock %}
+                        {% block ict_category_blog_list_smart_bar_header_amount %}
+                            <span v-if="total" class="sw-page__smart-bar-amount">
+                            ({{ total }})
+                        </span>
+                        {% endblock %}
+                    </h2>
+                {% endblock %}
+            </template>
+        {% endblock %}
+
+        {% block ict_category_blog_list_smart_bar_actions %}
+            <template #smart-bar-actions>
+                <sw-button-group split-button>
+                    {% block ict_category_blog_list_smart_bar_actions_add %}
+                        <sw-button
+                                :router-link="{ name: 'ict.category.blog.create'}"
+                                variant="primary"
+                        >
+                            Add Category
+                        </sw-button>
+                    {% endblock %}
+                </sw-button-group>
+            </template>
+        {% endblock %}
+        <template slot="content">
+            <sw-entity-listing
+                    v-if="categories"
+                    :items="categories"
+                    :repository="repository"
+                    :showSelection="true"
+                    :columns="CategoryColumns"
+                    detail-route="ict.category.blog.detail"
+                    class="ict-category-blog-list-grid"
+                    identifier="ict-category-blog-list"
+            >
+                <template slot="column-name" slot-scope="{ item }">
+                    <router-link :to="{ name: 'ict.category.blog.detail', params: { id: item.id } }">
+                        {{ item.id }}
+                    </router-link>
+                </template>
+                <template slot="column-name" slot-scope="{ item }">
+                    <router-link :to="{ name: 'ict.category.blog.detail', params: { id: item.id } }">
+                        {{ item.translated ? item.translated.name : item.name }}
+                    </router-link>
+                </template>
+            </sw-entity-listing>
+        </template>
+    </sw-page>
+{% endblock %}

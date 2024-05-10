@@ -25,6 +25,13 @@
                                 class="sw-product-detail__save-action"
                                 :process-success="isSaveSuccessful"
                                 variant="primary"
+                                :is-loading="isLoading"
+                                {% if VUE3 %}
+                                    @update:process-success="saveFinish"
+                                {% else %}
+                                    @process-finish="saveFinish"
+                                {% endif %}
+                                @click.prevent="onSave"
                         >
                             Save
                         </sw-button-process>
@@ -61,7 +68,70 @@
                     {% endblock %}
                 </sw-button-group>
             </template>
-
+        {% endblock %}
+        {% block ict_blog_detail_content %}
+            <template #content>
+                <sw-card-view>
+                    {% block ict_blog_create_base_form %}
+                        <sw-card title="Blog"  position-identifier="ict-blog-create-base-form"large>
+                            <sw-container
+                                    columns="repeat(auto-fit, minmax(250px, 1fr))"
+                                    gap="0px 32px"
+                            >
+                                <sw-text-field
+                                        :copyable="true"
+                                        name="sw-field--blog-name"
+                                        label="Name"
+                                        v-model="blog.name"
+                                        required
+                                        :class="errorClass"
+                                        @input="onInputRemoveClass"
+                                />
+                                <sw-textarea-field
+                                        type="textarea"
+                                        label="Description"
+                                        placeholder="Blog Description"
+                                        v-model="blog.description"
+                                        :value="blog.description"
+                                />
+                            </sw-container>
+                            <sw-switch-field
+                                    label="Active"
+                                    v-model="blog.active"
+                                    :value="blog.active"
+                            />
+                            <sw-datepicker
+                                    date-type="datetime"
+                                    label="Release Date"
+                                    placeholder="$tc('Enter release date...')"
+                                    value=""
+                                    v-model="blog.releaseDate"
+                                    :value="blog.releaseDate"
+                            />
+                            <sw-text-field
+                                    :copyable="true"
+                                    label="Author"
+                                    v-model="blog.author"
+                                    :value="blog.author"
+                            />
+                            <sw-entity-single-select
+                                    {% if VUE3 %}
+                                        v-model:value="blog.categoryId"
+                                    {% else %}
+                                        v-model="blog.categoryId"
+                                    {% endif %}
+                                    label="Ict Blog Categories"
+                                    entity="ict_category"
+                            />
+                            <sw-entity-multi-select
+                                    v-model="blog.products"
+                                    entity-name="product"
+                                    :label="$tc('Products')"
+                            />
+                        </sw-card>
+                    {% endblock %}
+                </sw-card-view>
+            </template>
         {% endblock %}
     </sw-page>
 {% endblock %}
