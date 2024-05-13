@@ -40,6 +40,9 @@
                                         name="sw-field--category-blog-name"
                                         label="Name"
                                         v-model="category.name"
+                                        :required="isTitleRequired"
+                                        :class="errorClass"
+                                        @input="onInputRemoveClass"
                                 />
                             </sw-container>
                         </sw-card>

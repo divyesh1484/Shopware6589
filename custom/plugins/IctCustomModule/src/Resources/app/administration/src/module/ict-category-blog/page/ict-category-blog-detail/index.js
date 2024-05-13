@@ -25,12 +25,15 @@ export default{
             isLoading: false,
             isSaveSuccessful: false,
             category: null,
-            sortDirection: 'DESC',
+            errorClass:null,
         };
     },
     computed: {
         categoryRepository() {
             return this.repositoryFactory.create('ict_category');
+        },
+        isTitleRequired() {
+            return Shopware.State.getters['context/isSystemDefaultLanguage'];
         },
         editMode: {
             get() {
@@ -92,9 +95,26 @@ export default{
             this.isLoading = false;
         },
 
+        onInputRemoveClass(){
+            if (this.category.name){
+                this.errorClass = "";
+            }
+        },
+
         async onSave() {
             this.isLoading = true;
             this.isSaveSuccessful = false;
+
+            if (!this.category.name){
+                this.createNotificationError({
+                    message: this.$tc('Please fill in all required fields.'),
+                });
+                this.isLoading = false;
+                this.errorClass = "has--error";
+                return new Promise((resolve) => {
+                    resolve();
+                });
+            }
 
             return this.categoryRepository.save(this.category).then(() => {
                 this.isSaveSuccessful = true;
