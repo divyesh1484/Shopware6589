@@ -159,22 +159,6 @@
                     {% endif %}
             />
         {% endblock %}
-        {% block sw_cms_element_image_config_button_link %}
-            <sw-text-field
-                    {% if VUE3 %}
-                        v-model:value="element.config.buttonLink.value"
-                    {% else %}
-                        v-model="element.config.buttonLink.value"
-                    {% endif %}
-                    :label="$tc('Button Link')"
-                    :placeholder="$tc('Enter Button Link')"
-                    {% if VUE3 %}
-                        @update:value="onChangeButtonLink"
-                    {% else %}
-                        @input="onChangeButtonLink"
-                    {% endif %}
-            />
-        {% endblock %}
         <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
         {% block sw_cms_element_image_config_link %}
             <div class="sw-cms-el-config-ict-image__link">

@@ -109,12 +109,6 @@ Shopware.Component.register('sw-cms-el-config-ict-image', {
             this.$emit('element-update', this.element);
         },
 
-        onChangeButtonLink(value) {
-            this.element.config.buttonLink.value = value === null ? '' : value;
-
-            this.$emit('element-update', this.element);
-        },
-
         onChangeDisplayMode(value) {
             if (value === 'cover') {
                 this.element.config.verticalAlign.value = null;

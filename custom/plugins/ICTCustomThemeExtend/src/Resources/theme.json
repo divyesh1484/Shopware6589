@@ -4,19 +4,23 @@
   "views": [
      "@Storefront",
      "@Plugins",
+     "@ICTCustomTheme",
      "@ICTCustomThemeExtend"
   ],
   "style": [
     "app/storefront/src/scss/overrides.scss",
     "@Storefront",
+    "@ICTCustomTheme",
     "app/storefront/src/scss/base.scss"
   ],
   "script": [
     "@Storefront",
+    "@ICTCustomTheme",
     "app/storefront/dist/storefront/js/i-c-t-custom-theme-extend.js"
   ],
   "asset": [
     "@Storefront",
+    "@ICTCustomTheme",
     "app/storefront/src/assets"
   ],
   "configInheritance": [

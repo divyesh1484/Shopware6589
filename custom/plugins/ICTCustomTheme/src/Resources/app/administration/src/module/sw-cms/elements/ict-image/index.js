@@ -21,10 +21,6 @@ Shopware.Service('cmsService').registerCmsElement({
             source: 'static',
             value: null,
         },
-        buttonLink: {
-            source: 'static',
-            value: null,
-        },
         media: {
             source: 'static',
             value: null,

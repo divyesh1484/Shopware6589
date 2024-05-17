@@ -28,10 +28,10 @@
                                     } %}
                                 {% endblock %}
                                 {% set buttonUrl = "#" %}
-                                {% if element.translated.config.buttonLink.value %}
-                                    {% set buttonUrl = element.translated.config.buttonLink.value %}
+                                {% if element.translated.config.url.value %}
+                                    {% set buttonUrl = element.translated.config.url.value %}
                                 {% endif %}
-                                {% if element.translated.config.buttonField.value and element.translated.config.buttonLink.value %}
+                                {% if element.translated.config.buttonField.value and element.translated.config.url.value %}
                                     <button class="btn">
                                         <a href="{{ buttonUrl }}">
                                             {{ element.translated.config.buttonField.value }}</button>

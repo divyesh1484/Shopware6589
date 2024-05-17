@@ -6,9 +6,9 @@
     "de-DE": "ICT custom thema"
   },
   "views": [
-     "@Storefront",
-     "@Plugins",
-     "@ICTCustomTheme"
+    "@Storefront",
+    "@Plugins",
+    "@ICTCustomTheme"
   ],
   "style": [
     "app/storefront/src/scss/overrides.scss",
