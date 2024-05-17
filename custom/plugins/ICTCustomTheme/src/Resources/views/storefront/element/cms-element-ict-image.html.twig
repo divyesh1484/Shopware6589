@@ -31,7 +31,7 @@
                                 {% if element.translated.config.buttonLink.value %}
                                     {% set buttonUrl = element.translated.config.buttonLink.value %}
                                 {% endif %}
-                                {% if element.translated.config.buttonField.value %}
+                                {% if element.translated.config.buttonField.value and element.translated.config.buttonLink.value %}
                                     <button class="btn">
                                         <a href="{{ buttonUrl }}">
                                             {{ element.translated.config.buttonField.value }}</button>
