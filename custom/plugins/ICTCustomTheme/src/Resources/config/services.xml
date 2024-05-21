@@ -9,5 +9,17 @@
             <tag name="shopware.cms.data_resolver" />
             <argument type="service" id="Shopware\Core\Content\Media\Cms\DefaultMediaResolver"/>
         </service>
+
+            <service id="ICTCustomTheme\Storefront\Controller\RegisterControllerDecorator" decorates="Shopware\Storefront\Controller\RegisterController" parent="Shopware\Storefront\Controller\RegisterController" public="true">
+        </service>
+
+        <service id="ICTCustomTheme\ScheduledTask\MyTask">
+            <tag name="shopware.scheduled.task" />
+        </service>
+
+        <service id="ICTCustomTheme\ScheduledTask\MyTaskHandler">
+            <argument type="service" id="scheduled_task.repository" />
+            <tag name="messenger.message_handler" />
+        </service>
     </services>
 </container>
