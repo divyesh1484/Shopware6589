@@ -63,11 +63,11 @@ export default{
             }
         },
         async loadBlog() {
-            Shopware.ExtensionAPI.publishData({
-                id: 'ict-blog-detail__blog',
-                path: 'blog',
-                scope: this,
-            });
+            // Shopware.ExtensionAPI.publishData({
+            //     id: 'ict-blog-detail__blog',
+            //     path: 'blog',
+            //     scope: this,
+            // });
             this.isLoading = true;
             const criteria = new Criteria();
             criteria.addAssociation('products');
