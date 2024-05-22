@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+
+        <card>
+        <title>ICT Custom Fees configuration</title>
+
+        <input-field type="bool">
+            <name>status</name>
+            <label>Status</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+        <input-field type="text">
+            <name>name</name>
+            <label>Fees Label</label>
+            <defaultValue>Custom Fees</defaultValue>
+        </input-field>
+        <input-field type="float">
+            <name>customFeeAmount</name>
+            <label>Custom Fee Amount</label>
+        </input-field>
+    </card>
+
+</config>
