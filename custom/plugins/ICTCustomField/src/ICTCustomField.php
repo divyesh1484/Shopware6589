@@ -22,9 +22,9 @@ class ICTCustomField extends Plugin
     {
         parent::uninstall($uninstallContext);
 
-//        if ($uninstallContext->keepUserData()) {
-//            return;
-//        }
+       if ($uninstallContext->keepUserData()) {
+           return;
+       }
 
         $this->getICTCustomFieldsInstaller()->deleteRelations($uninstallContext->getContext());
         // Remove or deactivate the data created by the plugin

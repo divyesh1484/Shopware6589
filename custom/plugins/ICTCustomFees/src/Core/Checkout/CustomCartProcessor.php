@@ -33,6 +33,10 @@ class CustomCartProcessor implements CartProcessorInterface
         if ($products->count() === 0) {
             return;
         }
+        $status = $this->systemConfigService->get('ICTCustomFees.config.status');
+        if (!$status) {
+            return;
+        }
         $customFeesLineItem = $this->addCustomFees();
 
         // declare price definition to define how this price is calculated

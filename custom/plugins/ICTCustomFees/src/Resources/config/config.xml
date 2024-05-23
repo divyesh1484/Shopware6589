@@ -3,7 +3,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
 
-        <card>
+    <card>
         <title>ICT Custom Fees configuration</title>
 
         <input-field type="bool">
@@ -20,6 +20,11 @@
             <name>customFeeAmount</name>
             <label>Custom Fee Amount</label>
         </input-field>
+        <component name="sw-entity-single-select">
+            <name>product</name>
+            <entity>product</entity>
+            <label>Choose a product for add Extra Fees</label>
+        </component>
     </card>
 
 </config>
