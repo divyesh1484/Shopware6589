@@ -13,6 +13,7 @@ use Shopware\Core\Checkout\Cart\Price\Struct\AbsolutePriceDefinition;
 use Shopware\Core\Checkout\Cart\Rule\LineItemRule;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
+use Shopware\Core\Framework\Uuid\Uuid;
 
 
 class CustomCartProcessor implements CartProcessorInterface
@@ -51,7 +52,10 @@ class CustomCartProcessor implements CartProcessorInterface
         $customFeesLineItem->setPrice(
             $this->calculator->calculate($definition->getPrice(), $products->getPrices(), $context)
         );
-        $toCalculate->add($customFeesLineItem);
+        $productId = $this->systemConfigService->get('ICTCustomFees.config.product');
+        if (in_array($productId, $products->getKeys())){
+            $toCalculate->add($customFeesLineItem);
+        }
     }
 
     private function findProducts(Cart $cart): LineItemCollection
@@ -69,7 +73,7 @@ class CustomCartProcessor implements CartProcessorInterface
     {
         $label = $this->systemConfigService->get('ICTCustomFees.config.name');
 
-        $customFeesLineItem = new LineItem("custom_fees", LineItem::CUSTOM_LINE_ITEM_TYPE, "", 1);
+        $customFeesLineItem = new LineItem(Uuid::randomHex(), LineItem::CUSTOM_LINE_ITEM_TYPE, "", 1);
 
         $customFeesLineItem->setLabel($label);
         $customFeesLineItem->setGood(false);
