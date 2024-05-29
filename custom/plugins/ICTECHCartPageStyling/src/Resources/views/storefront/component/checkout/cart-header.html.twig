@@ -1,0 +1,23 @@
+{% sw_extends '@Storefront/storefront/component/checkout/cart-header.html.twig' %}
+
+{% block component_checkout_cart_header %}
+    {% if showRemoveColumn is not defined %}
+        {% set showRemoveColumn = true %}
+    {% endif %}
+
+    {% set infoColumnClass = 'col-6' %}
+
+    {% if showRemoveColumn %}
+        {% set infoColumnClass = 'col-5' %}
+    {% endif %}
+    {% set styleType = config('ICTECHCartPageStyling.config.cartStyle') %}
+    {% set status = config('ICTECHCartPageStyling.config.status') %}
+
+    {% if styleType == "styleOne" and status == true and app.request.attributes.get('_route') == 'frontend.checkout.cart.page'%}
+        {% sw_include '@ICTECHCartPageStyling/storefront/component/checkout/style-one-cart-header.html.twig' %}
+    {% else %}
+        {% block component_checkout_cart_header_element %}
+            {{ parent() }}
+        {% endblock %}
+    {% endif %}
+{% endblock %}

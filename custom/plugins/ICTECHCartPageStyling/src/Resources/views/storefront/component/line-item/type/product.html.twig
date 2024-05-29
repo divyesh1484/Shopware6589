@@ -1,0 +1,45 @@
+{% sw_extends '@Storefront/storefront/component/line-item/type/product.html.twig' %}
+
+{% set label = lineItem.label|trans|sw_sanitize %}
+{% set label = label !== '' ? label : lineItem.label %}
+
+{% if displayMode is not defined %}
+    {% set displayMode = 'default' %}
+{% endif %}
+
+{% if showRemoveButton is not defined %}
+    {% set showRemoveButton = true %}
+{% endif %}
+
+{% set lineItemClasses = 'line-item line-item-' ~ lineItem.type ~ ' is-' ~ displayMode %}
+
+{% if displayMode === 'offcanvas' %}
+    {% set lineItemClasses = lineItemClasses ~ ' js-cart-item' %}
+{% endif %}
+
+{% if not showRemoveButton %}
+    {% set lineItemClasses = lineItemClasses ~ ' no-remove-button' %}
+{% endif %}
+
+{% set styleType = config('ICTECHCartPageStyling.config.cartStyle') %}
+{% set status = config('ICTECHCartPageStyling.config.status') %}
+
+{% block component_line_item_type_product %}
+    <div class="{{ lineItemClasses }}">
+        <div class="row line-item-row">
+            {% if styleType == "styleOne" and status == true and app.request.attributes.get('_route') == 'frontend.checkout.cart.page'%}
+                {% sw_include '@ICTECHCartPageStyling/storefront/component/line-item/type/style-one-product.html.twig' %}
+            {% else %}
+                {{ parent() }}
+            {% endif %}
+        </div>
+
+        {% if displayMode === 'order' %}
+            {% block component_line_item_type_product_downloads_table %}
+                <div class="order-detail-content-list">
+                    {% sw_include '@Storefront/storefront/component/line-item/element/downloads.html.twig' %}
+                </div>
+            {% endblock %}
+        {% endif %}
+    </div>
+{% endblock %}

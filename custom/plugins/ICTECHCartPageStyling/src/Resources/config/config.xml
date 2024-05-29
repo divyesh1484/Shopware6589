@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <card>
+        <title>Cart page configuration</title>
+
+        <input-field type="bool">
+            <name>status</name>
+            <label>Active/DeActive</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+        <input-field type="single-select">
+            <name>cartStyle</name>
+            <label>Cart Syle</label>
+            <options>
+                <option>
+                    <id>styleOne</id>
+                    <name>Style One</name>
+                </option>
+                <option>
+                    <id>styleTwo</id>
+                    <name>Style Two</name>
+                </option>
+                <option>
+                    <id>styleThree</id>
+                    <name>Style Three</name>
+                </option>
+            </options>
+        </input-field>
+    </card>
+
+</config>
