@@ -62,7 +62,7 @@
             </div>
         {% endblock %}
 
-        {% if (styleType == "cart-style-one" or styleType == "cart-style-one" or styleType == "cart-style-three") and status == true %}
+        {% if (styleType == "cart-style-one" or styleType == "cart-style-two" or styleType == "cart-style-three") and status == true %}
             <div class="checkout-aside-action">
                 {% block page_checkout_cart_add_promotion %}
                     {{ parent() }}
