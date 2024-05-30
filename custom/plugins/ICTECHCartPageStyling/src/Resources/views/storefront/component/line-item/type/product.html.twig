@@ -6,18 +6,18 @@
 {% block component_line_item_type_product %}
     <div class="{{ lineItemClasses }}">
         <div class="row line-item-row">
-            {% if styleType == "cart-style-one" and
-                status == true and
+            {% if status == true and
+                styleType == "cart-style-one" and
                 app.request.attributes.get('_route') == 'frontend.checkout.cart.page'
             %}
                 {% sw_include '@ICTECHCartPageStyling/storefront/component/line-item/type/style-one-product.html.twig' %}
-            {% elseif styleType == "cart-style-two" and
-                status == true and
+            {% elseif status == true and
+                styleType == "cart-style-two" and
                 app.request.attributes.get('_route') == 'frontend.checkout.cart.page'
             %}
                 {% sw_include '@ICTECHCartPageStyling/storefront/component/line-item/type/style-two-product.html.twig' %}
-            {% elseif styleType == "cart-style-three" and
-                status == true and
+            {% elseif status == true and
+                styleType == "cart-style-three" and
                 app.request.attributes.get('_route') == 'frontend.checkout.cart.page'
             %}
                 {% sw_include '@ICTECHCartPageStyling/storefront/component/line-item/type/style-three-product.html.twig' %}
