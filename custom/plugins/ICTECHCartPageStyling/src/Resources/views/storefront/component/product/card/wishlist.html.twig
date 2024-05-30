@@ -1,0 +1,33 @@
+{% sw_extends '@Storefront/storefront/component/product/card/wishlist.html.twig' %}
+{% block component_product_wishlist %}
+
+    {% set addToWishlistOptions = {
+        productId: productId,
+        router: {
+            add: {
+                afterLoginPath: path('frontend.wishlist.add.after.login', { productId: productId }),
+                path: path('frontend.wishlist.product.add', { productId: productId }),
+            },
+            remove: {
+                path: path('frontend.wishlist.product.remove', { productId: productId }),
+            }
+        },
+        texts: {
+            add: "listing.addToWishlist"|trans|sw_sanitize,
+            remove: "listing.removeFromWishlist"|trans|sw_sanitize
+        },
+    } %}
+
+    {% set size = size ?? 'md' %}
+    {% set styleType = config('ICTECHCartPageStyling.config.cartStyle') %}
+    {% set status = config('ICTECHCartPageStyling.config.status') %}
+    <div class="product-wishlist">
+        {% if styleType == "cart-style-two" and status == true and app.request.attributes.get('_route') == 'frontend.checkout.cart.page'%}
+           {% sw_include '@ICTECHCartPageStyling/storefront/component/product/card/cart-style-two-wishlist.html.twig' %}
+        {% elseif (styleType == "cart-style-one" or styleType == "cart-style-three") and status == true and app.request.attributes.get('_route') == 'frontend.checkout.cart.page'%}
+            {% sw_include '@ICTECHCartPageStyling/storefront/component/product/card/cart-style-one-wishlist.html.twig' %}
+        {% else %}
+            {{ parent() }}
+        {% endif %}
+    </div>
+{% endblock %}

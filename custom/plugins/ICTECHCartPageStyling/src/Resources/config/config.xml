@@ -16,15 +16,15 @@
             <label>Cart Syle</label>
             <options>
                 <option>
-                    <id>styleOne</id>
+                    <id>cart-style-one</id>
                     <name>Style One</name>
                 </option>
                 <option>
-                    <id>styleTwo</id>
+                    <id>cart-style-two</id>
                     <name>Style Two</name>
                 </option>
                 <option>
-                    <id>styleThree</id>
+                    <id>cart-style-three</id>
                     <name>Style Three</name>
                 </option>
             </options>

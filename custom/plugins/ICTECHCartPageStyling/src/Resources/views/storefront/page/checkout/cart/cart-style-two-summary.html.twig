@@ -1,0 +1,27 @@
+{% block cart_style_one_summary %}
+
+    {% block style_one_page_page_checkout_summary_header %}
+        <h2 class="checkout-aside-summary-header">
+            {{ "checkout.summaryHeader"|trans|sw_sanitize }}
+        </h2>
+    {% endblock %}
+
+    {% sw_include '@Storefront/storefront/page/checkout/summary.html.twig' %}
+
+    {% block page_checkout_aside_actions %}
+        {% block page_checkout_cart_action_proceed %}
+            <div class="checkout-aside-action d-grid">
+                <a href="{{ path('frontend.checkout.confirm.page') }}"
+                   class="btn btn-warning btn-lg begin-checkout-btn"
+                   title="{{ "cartStyleOne.checkout.proceedLink"|trans|striptags }}">
+                    {{ "cartStyleOne.checkout.proceedLink"|trans|upper }}
+                </a>
+                <br>
+                <a href="{{ path('frontend.home.page') }}"
+                   class="btn btn-outline-dark">
+                    {{ "cartStyleOne.checkout.continueShopping"|trans|upper }}
+                </a>
+            </div>
+        {% endblock %}
+    {% endblock %}
+{% endblock %}

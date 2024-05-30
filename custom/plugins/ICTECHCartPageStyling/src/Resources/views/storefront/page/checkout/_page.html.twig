@@ -1,0 +1,25 @@
+{% sw_extends '@Storefront/storefront/page/checkout/_page.html.twig' %}
+{% block base_flashbags %}{% endblock %}
+{% block base_content %}
+    {% block page_checkout %}
+        <div class="checkout">
+            {% block page_checkout_container %}
+                <div class="checkout-container">
+                    {% block page_checkout_main %}
+                        {{ parent() }}
+                    {% endblock %}
+
+                    {% block page_checkout_additional %}{% endblock %}
+                    {% if (styleType == "cart-style-one" or styleType == "cart-style-two" or styleType == "cart-style-three") and status == true and app.request.attributes.get('_route') == 'frontend.checkout.cart.page'%}
+                        {% sw_include '@ICTECHCartPageStyling/storefront/page/checkout/cart-style-one-page.html.twig' %}
+                    {% else %}
+                        {% block page_checkout_aside %}
+                            {{ parent() }}
+                        {% endblock %}
+                    {% endif %}
+
+                </div>
+            {% endblock %}
+        </div>
+    {% endblock %}
+{% endblock %}
