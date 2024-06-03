@@ -26,7 +26,15 @@
   },
   "cartStyleThree": {
     "checkout":{
-      "proceedToCheckout": "Weiter zur Zahlung"
+      "proceedToCheckout": "Weiter zur Zahlung",
+      "removeLineItem": "Löschen"
+    }
+  },
+  "cartStyleFour": {
+    "checkout":{
+      "proceedToCheckout": "Kasse",
+      "stockStatus": "Auf Lager",
+      "removeLineItem": "Entfernen"
     }
   }
 }

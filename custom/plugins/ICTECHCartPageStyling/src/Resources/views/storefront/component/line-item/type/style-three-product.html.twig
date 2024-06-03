@@ -52,7 +52,11 @@
                         {% if styleType == "cart-style-two" and status == true and app.request.attributes.get('_route') == 'frontend.checkout.cart.page'%}
                             {% sw_include '@ICTECHCartPageStyling/storefront/component/line-item/type/cart-style-two-product-number.html.twig' %}
                         {% else %}
-                            {% block component_line_item_type_product_number %}{% endblock %}
+                            {% block component_line_item_type_product_number %}
+                                <div class="line-item-product-number">
+                                    {{ "checkout.cartItemInfoId"|trans|sw_sanitize }} {{ lineItem.payload.productNumber }}
+                                </div>
+                            {% endblock %}
                         {% endif %}
                     {% endif %}
 
