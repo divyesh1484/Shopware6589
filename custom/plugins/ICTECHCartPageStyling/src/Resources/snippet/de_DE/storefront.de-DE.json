@@ -35,7 +35,11 @@
       "proceedToCheckout": "Kasse",
       "stockStatus": "Auf Lager",
       "removeLineItem": "Entfernen",
-      "cartHeaderOption": "Ihre Option"
+      "cartHeaderOption": "Ihre Option",
+      "cartQuantityLabel": "Menge: ",
+      "cartHeaderPrice": "Preis",
+      "cartHeader": "Einkaufstasche",
+      "cartHeaderInfo": "Beschreibung"
     }
   }
 }

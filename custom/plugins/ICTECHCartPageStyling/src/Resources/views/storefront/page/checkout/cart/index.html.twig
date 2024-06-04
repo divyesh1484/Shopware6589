@@ -23,11 +23,17 @@
             %}
                 {% sw_include '@ICTECHCartPageStyling/storefront/page/checkout/cart/cart-style-four-checkout-button.html.twig'%}
             {% endif %}
-            {% if styleType == "cart-style-one" and status == true and app.request.attributes.get('_route') == 'frontend.checkout.cart.page'%}
+            {% if status == true and
+                styleType == "cart-style-one" and
+                app.request.attributes.get('_route') == 'frontend.checkout.cart.page'
+            %}
                 <h1 class="cart-main-header">
                     {{ "cartStyleOne.checkout.cartHeader"|trans|upper }}
                 </h1>
-            {% elseif styleType == "cart-style-two" and status == true and app.request.attributes.get('_route') == 'frontend.checkout.cart.page' %}
+            {% elseif status == true and
+                styleType == "cart-style-two" and
+                app.request.attributes.get('_route') == 'frontend.checkout.cart.page'
+            %}
                 <div>
                     <h1 class="cart-main-header">
                         {{ "cartStyleTwo.checkout.cartHeader"|trans|upper }}
@@ -35,6 +41,22 @@
                     <span class="">
                         <a href="{{ path('frontend.checkout.confirm.page') }}"
                            class="btn btn-warning btn-lg begin-checkout-btn"
+                           title="{{ "cartStyleTwo.checkout.proceedLink"|trans|striptags }}">
+                            {{ "cartStyleTwo.checkout.proceedLink"|trans|upper }}
+                        </a>
+                    </span>
+                </div>
+            {% elseif status == true and
+                styleType == "cart-style-five" and
+                app.request.attributes.get('_route') == 'frontend.checkout.cart.page'
+            %}
+                <div>
+                    <h1 class="cart-main-header">
+                        {{ "cartStyleFive.checkout.cartHeader"|trans|upper }}
+                    </h1>
+                    <span class="">
+                        <a href="{{ path('frontend.checkout.confirm.page') }}"
+                           class="btn btn-primary btn-lg begin-checkout-btn"
                            title="{{ "cartStyleTwo.checkout.proceedLink"|trans|striptags }}">
                             {{ "cartStyleTwo.checkout.proceedLink"|trans|upper }}
                         </a>

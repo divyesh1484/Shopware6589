@@ -44,7 +44,9 @@
       "removeLineItem": "Remove",
       "cartHeaderOption": "Your Option",
       "cartQuantityLabel": "Quantity: ",
-      "cartHeaderPrice": "Price"
+      "cartHeaderPrice": "Price",
+      "cartHeader": "Shopping Bag",
+      "cartHeaderInfo": "Description"
     }
   }
 }
