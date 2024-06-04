@@ -39,7 +39,7 @@
   },
   "cartStyleFive": {
     "checkout":{
-      "proceedToCheckout": "Checkout",
+      "proceedToCheckout": "Go to checkout",
       "stockStatus": "In Stock",
       "removeLineItem": "Remove",
       "cartHeaderOption": "Your Option",
