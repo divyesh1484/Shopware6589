@@ -13,7 +13,7 @@
         </input-field>
         <input-field type="single-select">
             <name>cartStyle</name>
-            <label>Cart Syle</label>
+            <label>Cart Style</label>
             <options>
                 <option>
                     <id>cart-style-one</id>
@@ -30,6 +30,10 @@
                 <option>
                     <id>cart-style-four</id>
                     <name>Single centered column (Style Four)</name>
+                </option>
+                <option>
+                    <id>cart-style-five</id>
+                    <name>Top Shop (Style Five)</name>
                 </option>
             </options>
         </input-field>

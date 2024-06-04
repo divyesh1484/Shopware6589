@@ -55,9 +55,9 @@
                 lineItems: page.cart.lineItems
             } %}
         {% endblock %}
-
+    <div class="cart-below-table">
         {% block page_checkout_cart_add_product_and_shipping %}
-            <div class="row">
+            <div class="row cart-container-group">
                 {% block page_checkout_cart_add_product %}
                    {{ parent() }}
                 {% endblock %}
@@ -78,9 +78,15 @@
                 {% block page_checkout_cart_add_promotion %}
                     {{ parent() }}
                 {% endblock %}
+                {% if styleType == "cart-style-two" and status == true %}
+                    <a href="{{ path('frontend.home.page') }}"
+                       class="btn btn-outline-dark">
+                        {{ "cartStyleOne.checkout.continueShopping"|trans|upper }}
+                    </a>
+                {% endif %}
             </div>
         {% endif %}
-        <div>
+        <div class="checkout-summary-card card">
             {% if styleType == "cart-style-one" and status == true and app.request.attributes.get('_route') == 'frontend.checkout.cart.page'%}
                 <div>
                     {% block style_one_page_checkout_summary %}
@@ -116,6 +122,7 @@
                 </div>
             {% endif %}
         </div>
+    </div>
     {% endblock %}
     <script>
         var currentRoutes = document.getElementById('routes').value;

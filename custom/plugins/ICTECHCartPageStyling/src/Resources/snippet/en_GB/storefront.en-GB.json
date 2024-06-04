@@ -36,5 +36,15 @@
       "stockStatus": "In Stock",
       "removeLineItem": "Remove"
     }
+  },
+  "cartStyleFive": {
+    "checkout":{
+      "proceedToCheckout": "Checkout",
+      "stockStatus": "In Stock",
+      "removeLineItem": "Remove",
+      "cartHeaderOption": "Your Option",
+      "cartQuantityLabel": "Quantity: ",
+      "cartHeaderPrice": "Price"
+    }
   }
 }

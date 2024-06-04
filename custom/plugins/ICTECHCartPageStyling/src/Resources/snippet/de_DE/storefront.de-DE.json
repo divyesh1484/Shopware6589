@@ -34,7 +34,8 @@
     "checkout":{
       "proceedToCheckout": "Kasse",
       "stockStatus": "Auf Lager",
-      "removeLineItem": "Entfernen"
+      "removeLineItem": "Entfernen",
+      "cartHeaderOption": "Ihre Option"
     }
   }
 }

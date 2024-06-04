@@ -26,6 +26,11 @@
                 app.request.attributes.get('_route') == 'frontend.checkout.cart.page'
             %}
                 {% sw_include '@ICTECHCartPageStyling/storefront/component/line-item/type/style-four-product.html.twig' %}
+            {% elseif status == true and
+                styleType == "cart-style-five" and
+                app.request.attributes.get('_route') == 'frontend.checkout.cart.page'
+            %}
+                {% sw_include '@ICTECHCartPageStyling/storefront/component/line-item/type/style-five-product.html.twig' %}
             {% else %}
                 {{ parent() }}
             {% endif %}

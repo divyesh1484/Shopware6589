@@ -61,13 +61,24 @@
                 lineItem.type !== "promotion"
             %}
                 {% block cart_style_four_component_line_item_remove_button %}
-                    <button type="button"
+                    <button type="submit"
                             title="{{ "checkout.removeLineItem"|trans|striptags }}"
                             data-product-id="{{ lineItem.id }}"
                             class="btn btn-link btn-sm line-item-remove-button">
                         {{ "cartStyleFour.checkout.removeLineItem"|trans|sw_sanitize }}
                     </button>
                 {% endblock %}
+            {% elseif styleType == "cart-style-five" and
+                status == true and
+                app.request.attributes.get('_route') == 'frontend.checkout.cart.page' and
+                lineItem.type !== "promotion"
+            %}
+                <button type="submit"
+                        title="{{ "checkout.removeLineItem"|trans|striptags }}"
+                        data-product-id="{{ lineItem.id }}"
+                        class="btn btn-link btn-sm line-item-remove-button">
+                    {{ "cartStyleFive.checkout.removeLineItem"|trans|sw_sanitize }}
+                </button>
             {% else %}
                 {% block component_line_item_remove_button %}
                     {{ parent() }}
