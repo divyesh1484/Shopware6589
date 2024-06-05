@@ -28,10 +28,6 @@
                     <name>Style Three</name>
                 </option>
                 <option>
-                    <id>cart-style-three</id>
-                    <name>Style Three</name>
-                </option>
-                <option>
                     <id>cart-style-four</id>
                     <name>Single centered column (Style Four)</name>
                 </option>
