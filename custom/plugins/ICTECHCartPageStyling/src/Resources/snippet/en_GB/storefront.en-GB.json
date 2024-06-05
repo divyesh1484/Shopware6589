@@ -46,7 +46,8 @@
       "cartQuantityLabel": "Quantity: ",
       "cartHeaderPrice": "Price",
       "cartHeader": "Shopping Bag",
-      "cartHeaderInfo": "Description"
+      "cartHeaderInfo": "Description",
+      "proceedLink": "Checkout"
     }
   }
 }

@@ -170,8 +170,10 @@
         }
     </script>
 {% endblock %}
-
-
-
-
-
+{% block page_checkout_aside_actions %}
+    {% if styleType == "cart-style-five" and status == true and app.request.attributes.get('_route') == 'frontend.checkout.cart.page'%}
+        {% sw_include '@ICTECHCartPageStyling/storefront/page/checkout/cart/cart-style-five-checkout-button.html.twig' %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
