@@ -87,27 +87,38 @@
                 {% block page_checkout_cart_shipping_costs %}
                     {{ parent() }}
                 {% endblock %}
+
+                {% if (styleType == "cart-style-one" or
+                    styleType == "cart-style-two" or
+                    styleType == "cart-style-three" or
+                    styleType == "cart-style-four") and
+                    status == true
+                %}
+                    <div class="checkout-aside-action">
+                        {% block page_checkout_cart_add_promotion %}
+                            {{ parent() }}
+                        {% endblock %}
+                    </div>
+                {% endif %}
+
             </div>
         {% endblock %}
 
-        {% if (styleType == "cart-style-one" or
-            styleType == "cart-style-two" or
-            styleType == "cart-style-three" or
-            styleType == "cart-style-four") and
-            status == true
-        %}
-            <div class="checkout-aside-action">
-                {% block page_checkout_cart_add_promotion %}
-                    {{ parent() }}
-                {% endblock %}
-                {% if styleType == "cart-style-two" and status == true %}
-                    <a href="{{ path('frontend.home.page') }}"
-                       class="btn btn-outline-dark">
-                        {{ "cartStyleOne.checkout.continueShopping"|trans|upper }}
-                    </a>
-                {% endif %}
+        {% if styleType == "cart-style-two" and status == true %}
+            <div class="checkout-aside-action d-grid">
+                <a href="{{ path('frontend.checkout.confirm.page') }}"
+                   class="btn btn-primary btn-lg begin-checkout-btn"
+                   title="{{ "cartStyleOne.checkout.proceedLink"|trans|striptags }}">
+                    {{ "cartStyleOne.checkout.proceedLink"|trans|upper }}
+                </a>
+                <br>
+                <a href="{{ path('frontend.home.page') }}"
+                   class="btn btn-outline-dark btn-continue">
+                    {{ "cartStyleOne.checkout.continueShopping"|trans|upper }}
+                </a>
             </div>
         {% endif %}
+
         <div class="checkout-summary-card card">
             {% if styleType == "cart-style-one" and status == true and app.request.attributes.get('_route') == 'frontend.checkout.cart.page'%}
                 <div>
