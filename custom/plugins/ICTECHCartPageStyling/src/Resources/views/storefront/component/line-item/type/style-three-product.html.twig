@@ -33,12 +33,13 @@
                             lineItemModalLink: showLineItemModal ? path('widgets.quickview.minimal', { 'productId': lineItem.referencedId }) : false,
                         } %}
                     {% endblock %}
-
+                    <div class="line-characteristics">
                     {% if lineItem.payload.options is not empty %}
                         {% block component_line_item_type_product_variant_characteristics %}
                             {% sw_include '@Storefront/storefront/component/line-item/element/variant-characteristics.html.twig' %}
                         {% endblock %}
                     {% endif %}
+                    </div>
 
                     {% if lineItem.payload.features is not empty %}
                         {% block component_line_item_type_product_features %}

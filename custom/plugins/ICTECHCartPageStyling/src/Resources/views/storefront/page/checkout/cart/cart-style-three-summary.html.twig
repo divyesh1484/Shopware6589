@@ -7,7 +7,9 @@
     {% endblock %}
 
     {% sw_include '@Storefront/storefront/page/checkout/summary.html.twig' %}
-
+    <div class="checkout-aside-action">
+        {% sw_include '@ICTECHCartPageStyling/storefront/page/checkout/cart/cart-style-three-index.html.twig' %}
+    </div>
     {% block page_checkout_aside_actions %}
         {% block page_checkout_cart_action_proceed %}
             <div class="checkout-aside-action d-grid">
