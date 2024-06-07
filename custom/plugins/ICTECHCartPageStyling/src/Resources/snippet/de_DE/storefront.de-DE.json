@@ -39,7 +39,21 @@
       "cartQuantityLabel": "Menge: ",
       "cartHeaderPrice": "Preis",
       "cartHeader": "Einkaufstasche",
-      "cartHeaderInfo": "Beschreibung"
+      "cartHeaderInfo": "Beschreibung",
+      "cartTotalMsg": "Gesamtsumme der Artikel im Warenkorb"
+    }
+  },
+  "cartStyleFive": {
+    "checkout":{
+      "proceedToCheckout": "Zum Checkout gehen",
+      "stockStatus": "Auf Lager",
+      "removeLineItem": "Entfernen",
+      "cartHeaderOption": "Ihre Option",
+      "cartQuantityLabel": "Menge: ",
+      "cartHeaderPrice": "Preis",
+      "cartHeader": "Einkaufstasche",
+      "cartHeaderInfo": "Beschreibung",
+      "proceedLink": "Kasse"
     }
   }
 }

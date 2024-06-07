@@ -34,7 +34,8 @@
     "checkout":{
       "proceedToCheckout": "Checkout",
       "stockStatus": "In Stock",
-      "removeLineItem": "Remove"
+      "removeLineItem": "Remove",
+      "cartTotalMsg": "Total for items in the basket"
     }
   },
   "cartStyleFive": {

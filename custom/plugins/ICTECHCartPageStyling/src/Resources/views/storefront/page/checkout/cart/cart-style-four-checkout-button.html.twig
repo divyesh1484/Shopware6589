@@ -1,7 +1,7 @@
 {% block page_checkout_cart_action_proceed %}
     <div class="checkout-aside-action d-grid">
     {% block page_checkout_cart_price_total %}
-        <h3 class="checkout-subtotal"> Total for items in the basket: {{page.cart.price.totalPrice | currency}}</h3>
+        <h3 class="checkout-subtotal"> {{ "cartStyleFour.checkout.cartTotalMsg"|trans|striptags }}: {{page.cart.price.totalPrice | currency}}</h3>
     {% endblock %}
         <a href="{{ path('frontend.checkout.confirm.page') }}"
            class="btn btn-primary btn-lg begin-checkout-btn"
