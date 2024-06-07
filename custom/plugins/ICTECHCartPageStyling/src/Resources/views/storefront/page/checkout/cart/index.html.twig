@@ -5,6 +5,24 @@
 {% endblock %}
 
 {% block page_checkout_container %}
+
+{%if status == true and
+    styleType == "cart-style-five" and
+    app.request.attributes.get('_route') == 'frontend.checkout.cart.page'
+%}
+    <div class="cart-header-top">
+        <h1 class="cart-main-header">
+            {{ "cartStyleFive.checkout.cartHeader"|trans|upper }}
+        </h1>
+        <span class="">
+            <a href="{{ path('frontend.checkout.confirm.page') }}"
+                class="btn btn-primary btn-lg begin-checkout-btn"
+                title="{{ "cartStyleTwo.checkout.proceedLink"|trans|striptags }}">
+                {{ "cartStyleTwo.checkout.proceedLink"|trans|upper }}
+            </a>
+</span>
+    </div>
+{% endif %}
     {{ parent() }}
 {% endblock %}
 
@@ -15,6 +33,7 @@
     <input type="hidden" value="{{ app.request.attributes.get('_route') }}" id="routes">
     <input type="hidden" value="{{ styleType }}" id="cartStyleType">
     <input type="hidden" value="{{ status }}" id="styleStatus">
+    
     {% block page_checkout_cart %}
         {% block page_checkout_cart_header %}
             {% if styleType == "cart-style-four" and
@@ -37,22 +56,6 @@
                 <div>
                     <h1 class="cart-main-header">
                         {{ "cartStyleTwo.checkout.cartHeader"|trans|upper }}
-                    </h1>
-                    <span class="">
-                        <a href="{{ path('frontend.checkout.confirm.page') }}"
-                           class="btn btn-primary btn-lg begin-checkout-btn"
-                           title="{{ "cartStyleTwo.checkout.proceedLink"|trans|striptags }}">
-                            {{ "cartStyleTwo.checkout.proceedLink"|trans|upper }}
-                        </a>
-                    </span>
-                </div>
-            {% elseif status == true and
-                styleType == "cart-style-five" and
-                app.request.attributes.get('_route') == 'frontend.checkout.cart.page'
-            %}
-                <div>
-                    <h1 class="cart-main-header">
-                        {{ "cartStyleFive.checkout.cartHeader"|trans|upper }}
                     </h1>
                     <span class="">
                         <a href="{{ path('frontend.checkout.confirm.page') }}"

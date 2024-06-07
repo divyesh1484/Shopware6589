@@ -54,7 +54,11 @@
                                         {% endblock %}
                                     {% endif %}
 
-                                    {% if config('core.cart.wishlistEnabled') %}
+                                    
+                                </div>
+
+                                <div class="line-info-group">
+                                {% if config('core.cart.wishlistEnabled') %}
                                         {% block component_line_item_type_product_wishlist %}
                                             {% sw_include '@Storefront/storefront/component/product/card/wishlist.html.twig' with {
                                                 showText: true,
@@ -63,7 +67,7 @@
                                             } %}
                                         {% endblock %}
                                     {% endif %}
-                                </div>
+                                    
                                 {% if showRemoveButton %}
                                     {% block component_line_item_type_product_col_remove %}
                                         <div class="line-item-remove">
@@ -73,6 +77,7 @@
                                         </div>
                                     {% endblock %}
                                 {% endif %}
+                                </div>
 
                             </div>
                         {% endblock %}
