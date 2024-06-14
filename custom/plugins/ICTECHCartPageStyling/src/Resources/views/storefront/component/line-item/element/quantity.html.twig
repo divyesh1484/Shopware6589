@@ -68,19 +68,19 @@
                                 {# @deprecated tag:v6.7.0 - Unused variable selectQuantityThreshold will be removed without replacement #}
                                 {% set selectQuantityThreshold = 100 %}
                                 {% block component_line_item_quantity_select %}
-                                    {% if status == true and
-                                        styleType == "cart-style-one" and
-                                        app.request.attributes.get('_route') == 'frontend.checkout.cart.page'
+                                    {% if status === true and
+                                        styleType === "cart-style-one" and
+                                        app.request.attributes.get('_route') === 'frontend.checkout.cart.page'
                                     %}
                                         {% sw_include '@ICTECHCartPageStyling/storefront/component/line-item/element/cart-style-one-quantity.html.twig' %}
-                                    {% elseif status == true and
-                                        styleType == "cart-style-two" and
-                                        app.request.attributes.get('_route') == 'frontend.checkout.cart.page'
+                                    {% elseif status === true and
+                                        styleType === "cart-style-two" and
+                                        app.request.attributes.get('_route') === 'frontend.checkout.cart.page'
                                     %}
                                         {% sw_include '@ICTECHCartPageStyling/storefront/component/line-item/element/cart-style-two-quantity.html.twig' %}
-                                    {% elseif status == true and
-                                        styleType == "cart-style-five" and
-                                        app.request.attributes.get('_route') == 'frontend.checkout.cart.page'
+                                    {% elseif status === true and
+                                        styleType === "cart-style-five" and
+                                        app.request.attributes.get('_route') === 'frontend.checkout.cart.page'
                                     %}
                                         {% sw_include '@ICTECHCartPageStyling/storefront/component/line-item/element/cart-style-five-quantity.html.twig' %}
                                     {% else %}

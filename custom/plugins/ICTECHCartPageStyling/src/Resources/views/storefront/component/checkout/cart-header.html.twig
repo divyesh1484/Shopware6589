@@ -13,14 +13,14 @@
     {% set styleType = config('ICTECHCartPageStyling.config.cartStyle') %}
     {% set status = config('ICTECHCartPageStyling.config.status') %}
 
-    {% if status == true and
-        styleType == "cart-style-one" and
-        app.request.attributes.get('_route') == 'frontend.checkout.cart.page'
+    {% if status === true and
+        styleType === "cart-style-one" and
+        app.request.attributes.get('_route') === 'frontend.checkout.cart.page'
     %}
         {% sw_include '@ICTECHCartPageStyling/storefront/component/checkout/style-one-cart-header.html.twig' %}
-    {% elseif status == true and
-        styleType == "cart-style-five" and
-        app.request.attributes.get('_route') == 'frontend.checkout.cart.page'
+    {% elseif status === true and
+        styleType === "cart-style-five" and
+        app.request.attributes.get('_route') === 'frontend.checkout.cart.page'
     %}
         {% sw_include '@ICTECHCartPageStyling/storefront/component/checkout/style-five-cart-header.html.twig' %}
     {% else %}

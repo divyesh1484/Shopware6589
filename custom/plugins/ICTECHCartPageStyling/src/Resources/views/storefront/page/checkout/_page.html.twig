@@ -10,7 +10,7 @@
                     {% endblock %}
 
                     {% block page_checkout_additional %}{% endblock %}
-                    {% if (styleType == "cart-style-one" or styleType == "cart-style-two" or styleType == "cart-style-three" or styleType == "cart-style-four") and status == true and app.request.attributes.get('_route') == 'frontend.checkout.cart.page'%}
+                    {% if (styleType === "cart-style-one" or styleType === "cart-style-two" or styleType === "cart-style-three" or styleType === "cart-style-four") and status === true and app.request.attributes.get('_route') === 'frontend.checkout.cart.page'%}
                         {% sw_include '@ICTECHCartPageStyling/storefront/page/checkout/cart-style-one-page.html.twig' %}
                     {% else %}
                         {% block page_checkout_aside %}
