@@ -1,8 +1,5 @@
-// import PluginManager from 'src/plugin-system/plugin.manager';
-// import CartStyleQuantitySelectorPlugin from './plugin/quantity-selector/cart-style-quantity-selector.plugin';
-//
-// // Unregister the original plugin
-// PluginManager.unregister('QuantitySelector', '[data-quantity-selector]');
-//
-// // Register your custom plugin
-// PluginManager.register('QuantitySelector', CartStyleQuantitySelectorPlugin, '[data-quantity-selector]');
+import CartStylePage from './script/cart-style/cart-style-page';
+
+// Register your plugin via the existing PluginManager
+const PluginManager = window.PluginManager;
+PluginManager.register('CartStylePage', CartStylePage);

@@ -2,6 +2,7 @@
 
 {% block base_head %}
     {{ parent() }}
+    <template data-cart-style></template>
 {% endblock %}
 
 {% block page_checkout_container %}
@@ -159,18 +160,6 @@
         </div>
     </div>
     {% endblock %}
-    <script>
-        var currentRoutes = document.getElementById('routes').value;
-        var cartStyle = document.getElementById('cartStyleType').value;
-        var styleStatus = document.getElementById('styleStatus').value;
-        if (styleStatus){
-            if (currentRoutes === 'frontend.checkout.cart.page') {
-                window.addEventListener('load', function() {
-                    document.body.classList.add(cartStyle);
-                });
-            }
-        }
-    </script>
 {% endblock %}
 {% block page_checkout_aside_actions %}
     {% if styleType == "cart-style-five" and status == true and app.request.attributes.get('_route') == 'frontend.checkout.cart.page'%}
