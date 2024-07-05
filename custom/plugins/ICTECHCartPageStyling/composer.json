@@ -2,7 +2,7 @@
     "name": "ictech/ictech-cart-page-styling",
     "description": "Cart Page Styling plugin",
     "type": "shopware-platform-plugin",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "license": "proprietary",
     "authors": [
         {
