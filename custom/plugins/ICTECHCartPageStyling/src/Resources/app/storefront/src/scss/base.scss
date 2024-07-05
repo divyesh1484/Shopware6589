@@ -140,7 +140,7 @@
                         bottom: 0;
                         @include media-breakpoint-down(md) { 
                           border-radius: 10px 10px 0 0;
-                          object-fit: cover;
+                          object-fit: contain;
                         }
                       }
                     }
