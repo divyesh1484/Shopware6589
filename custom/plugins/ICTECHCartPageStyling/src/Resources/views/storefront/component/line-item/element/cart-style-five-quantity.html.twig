@@ -3,17 +3,36 @@
         <label for="quantity">
             {{ "cartStyleFive.checkout.cartQuantityLabel"|trans|sw_sanitize }}
         </label>
-        <input
+
+        <button
                 {% if isDigital %}disabled="disabled"{% endif %}
-                type="number"
-                name="quantity"
-                class="form-control js-quantity-selector quantity-selector-group-input quantity-input-{{ lineItem.id }} {% if displayMode === 'offcanvas' %} js-offcanvas-cart-change-quantity-number{% endif %}"
-                min="{{ quantityInformation.minPurchase }}"
-                style="border:none;"
-                max="{{ maxQuantity }}"
-                step="{{ quantityInformation.purchaseSteps }}"
-                value="{{ lineItem.quantity }}"
-                aria-label="{{ "component.product.quantitySelect.label"|trans|striptags }}"
-               />
+                type="button"
+                class="btn btn-outline-light btn-minus js-btn-minus"
+                style="display:none;"
+                aria-label="{{ "component.product.quantitySelect.decrease"|trans|striptags }}"
+        >
+            {% sw_icon 'minus' style {'size': 'xs'} %}
+        </button>
+        <input
+            {% if isDigital %}disabled="disabled"{% endif %}
+            type="number"
+            name="quantity"
+            class="form-control js-quantity-selector quantity-selector-group-input quantity-input-{{ lineItem.id }} {% if displayMode === 'offcanvas' %} js-offcanvas-cart-change-quantity-number{% endif %}"
+            min="{{ quantityInformation.minPurchase }}"
+            style="border:none;"
+            max="{{ maxQuantity }}"
+            step="{{ quantityInformation.purchaseSteps }}"
+            value="{{ lineItem.quantity }}"
+            aria-label="{{ "component.product.quantitySelect.label"|trans|striptags }}"
+           />
+            <button
+                {% if isDigital %}disabled="disabled"{% endif %}
+                type="button"
+                class="btn btn-outline-light btn-plus js-btn-plus"
+                style="display:none;"
+                aria-label="{{ "component.product.quantitySelect.increase"|trans|striptags }}"
+            >
+                {% sw_icon 'plus' style {'size': 'xs'} %}
+            </button>
     </div>
 {% endblock %}
