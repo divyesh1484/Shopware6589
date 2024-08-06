@@ -1,8 +1,8 @@
 {
     "name": "ictech/ictech-cart-page-styling",
-    "description": "Cart Page Styling plugin",
+    "description": "Cart Page Styling",
     "type": "shopware-platform-plugin",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "license": "proprietary",
     "authors": [
         {
@@ -10,18 +10,20 @@
         }
     ],
     "require": {
-        "shopware/core": "~6.6.0"
+        "shopware/core": "^6.6",
+        "shopware/storefront": "^6.6",
+        "shopware/administration": "^6.6"
     },
     "extra": {
         "shopware-plugin-class": "ICTECHCartPageStyling\\ICTECHCartPageStyling",
         "plugin-icon": "plugin.png",
         "label": {
-            "de-DE": "Gestaltung der Einkaufswagen-Seite plugin",
-            "en-GB": "Cart Page Styling plugin"
+            "de-DE": "Gestaltung der Einkaufswagen-Seite",
+            "en-GB": "Cart Page Styling"
         },
          "description": {
-          "de-DE": "Gestaltung der Einkaufswagen-Seite plugin",
-          "en-GB": "Cart Page Styling plugin"
+          "de-DE": "Gestaltung der Einkaufswagen-Seite",
+          "en-GB": "Cart Page Styling"
         },
         "manufacturerLink": {
           "de-DE": "https://www.icreativetechnologies.com",

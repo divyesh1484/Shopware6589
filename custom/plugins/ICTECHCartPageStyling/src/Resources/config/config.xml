@@ -9,39 +9,39 @@
 
         <input-field type="bool">
             <name>status</name>
-            <label>Active/DeActive</label>
-            <label lang="de-DE">Aktiv/Deaktiv</label>
+            <label>Active</label>
+            <label lang="de-DE">Aktiv</label>
             <defaultValue>false</defaultValue>
         </input-field>
         <input-field type="single-select">
             <name>cartStyle</name>
-            <label>Cart Style</label>
+            <label>Cart styling</label>
             <label lang="de-DE">Wagen-Stil</label>
             <options>
                 <option>
                     <id>cart-style-one</id>
-                    <name>Style One</name>
-                    <name lang="de-DE">Stil Eins</name>
+                    <name>Neo Cart</name>
+                    <name lang="de-DE">Neo Wagen</name>
                 </option>
                 <option>
                     <id>cart-style-two</id>
-                    <name>Style Two</name>
-                    <name lang="de-DE">Stil Zwei</name>
+                    <name>Clasis cart</name>
+                    <name lang="de-DE">Clasis Wagen</name>
                 </option>
                 <option>
                     <id>cart-style-three</id>
-                    <name>Style Three</name>
-                    <name lang="de-DE">Stil Drei</name>
+                    <name>Grid cart</name>
+                    <name lang="de-DE">Gitter Wagen</name>
                 </option>
                 <option>
                     <id>cart-style-four</id>
-                    <name>Single centered column (Style Four) </name>
-                    <name lang="de-DE">Einzelne zentrierte Spalte (Stil Vier)</name>
+                    <name>Single centered cart</name>
+                    <name lang="de-DE">Einzelner zentrierter Wagen</name>
                 </option>
                 <option>
                     <id>cart-style-five</id>
-                    <name>Top Shop (Style Five)</name>
-                    <name lang="de-DE">Top Shop (Stil Fünf)</name>
+                    <name>Refined retail cart</name>
+                    <name lang="de-DE">Verfeinerter Einkaufswagen</name>
                 </option>
             </options>
         </input-field>
